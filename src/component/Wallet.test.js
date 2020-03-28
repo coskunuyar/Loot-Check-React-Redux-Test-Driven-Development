@@ -42,7 +42,7 @@ describe('Wallet',() => {
         describe('and the user wants to make a withdraw',() => {
             beforeEach(() => wallet.find('.btn-withdraw').simulate('click'));
             it('dispatches the withdraw with local balance', () => {
-                expect(mockDeposit).toHaveBeenCalledWith(parseInt(userBalance,10));
+                expect(mockWithdraw).toHaveBeenCalledWith(parseInt(userBalance,10));
             });
         });
     });

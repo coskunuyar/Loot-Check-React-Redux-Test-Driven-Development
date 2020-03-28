@@ -2,11 +2,20 @@ import balanceReducer from './balance';
 import * as constants from '../actions/constants';
 
 describe('balanceReducer',() => {
-    it('sets a balance',() => {
+   
+   describe('when initilaziing',() => {
         const balance = 10;
-        expect(balanceReducer(undefined,{ 
-            type: constants.SET_BALANCE , balance })).toEqual(balance);        
-    });
+        it('sets a balance',() => {
+            expect(balanceReducer(undefined,{ 
+                type: constants.SET_BALANCE , balance })).toEqual(balance);        
+        });
+
+        describe('then re-initializing',() => {
+            it('reads the balance from cookies',() => {
+                expect(balanceReducer(undefined,{})).toEqual(balance);
+            });
+        });
+   });
 
     it('deposit into the balance',() => {
         const deposit = 10;
